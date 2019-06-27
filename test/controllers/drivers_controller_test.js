@@ -19,4 +19,38 @@ describe('CrDrivers controller', () => {
                     });
             })
     });
+
+    it('PUT to /api/drivers edit an existing driver', (done) => {
+        const driver = new Driver({ email: 't@t.com', driving: false});
+        driver.save().then(() => {
+            request(app)
+            .put(`/api/drivers/${driver._id}`)
+            .send({driving: true})
+            .end(() => {
+                Driver.findOne({email: 't@t.com'})
+                    .then(driver => {
+                        assert(driver.driving === true);
+                        done();
+                    });
+                
+            });
+        })    
+    });
+
+    it('DELETE to /api/drivers delete an existing driver', (done) => {
+        const driver = new Driver({ email: 't@t.com', driving: false});
+        driver.save().then(() => {
+            request(app)
+            .delete(`/api/drivers/${driver._id}`)
+            .end(() => {
+                Driver.find({email: 't@t.com'})
+                    .then(drivers => {
+                        // console.log(drivers);
+                        assert(drivers.length === 0);
+                        done();
+                    });
+                
+            });
+        })    
+    });
 });
