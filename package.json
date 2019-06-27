@@ -1,0 +1,26 @@
+{
+  "name": "findacar",
+  "version": "1.0.0",
+  "description": "uber like backend built upon express and mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon --exec mocha --recursive -R min"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ledahu05/findacar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ledahu05/findacar/issues"
+  },
+  "homepage": "https://github.com/ledahu05/findacar#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mocha": "^6.1.4",
+    "mongoose": "^5.6.1",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
+  }
+}
